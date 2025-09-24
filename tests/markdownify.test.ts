@@ -30,4 +30,12 @@ describe('markdownify', () => {
   it('should escape special characters', () => {
     expect(markdownify('Hello. World!')).toBe('Hello\\. World\\!');
   });
+
+  it('should correctly format bold text with underscore italic text', () => {
+    expect(markdownify('**bold_text with _italic text_**')).toBe('*bold\\_text with _italic text_*');
+  });
+
+  it('should correctly format italic text with asterisk bold text', () => {
+    expect(markdownify('_italic_text with **bold text**_')).toBe('_italic\\_text with *bold text*_');
+  });
 });
